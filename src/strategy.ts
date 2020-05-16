@@ -1,9 +1,10 @@
 /**
  * Module dependencies.
  */
-var util = require('util')
-  , OAuth2Strategy = require('passport-oauth2')
-  , InternalOAuthError = require('passport-oauth2').InternalOAuthError;
+import util from "util";
+import OAuth2StrategyI from "passport-oauth2";
+const OAuth2Strategy = OAuth2StrategyI.Strategy;
+const InternalOAuthError = OAuth2StrategyI.InternalOAuthError;
 
 
 /**
@@ -40,7 +41,7 @@ var util = require('util')
  * @param {Function} verify
  * @api public
  */
-function Strategy(options, verify) {
+export default function Strategy(options: any, verify: Function) {
   options = options || {};
   options.authorizationURL = options.authorizationURL || 'https://api.instagram.com/oauth/authorize/';
   options.tokenURL = options.tokenURL || 'https://api.instagram.com/oauth/access_token';
@@ -69,20 +70,20 @@ util.inherits(Strategy, OAuth2Strategy);
  * @param {Function} done
  * @api protected
  */
-Strategy.prototype.userProfile = function(accessToken, done) {
+Strategy.prototype.userProfile = function(accessToken: string, done: Function) {
   // TODO: Instagram provides user profile information in the access token
   //       response.  As an optimization, that information should be used, which
   //       would avoid the need for an extra request during this step.  However,
   //       the internal node-oauth module will have to be modified to support
   //       exposing this information.
 
-  this._oauth2.get('https://graph.instagram.com/me?fields=id,username,account_type', accessToken, function (err, body, res) {
+  this._oauth2.get('https://graph.instagram.com/me?fields=id,username,account_type', accessToken, function (err: any, body: string, res: any) {
     if (err) { return done(new InternalOAuthError('failed to fetch user profile', err)); }
 
     try {
       var json = JSON.parse(body);
 
-      var profile = { provider: 'instagram' };
+      var profile: any = { provider: 'instagram' };
       profile.id = json.id;
       profile.accountType = json.account_type;
       profile.username = json.username;
@@ -109,7 +110,7 @@ Strategy.prototype.userProfile = function(accessToken, done) {
  * @return {Object}
  * @api protected
  */
-Strategy.prototype.authorizationParams = function(options) {
+Strategy.prototype.authorizationParams = function(options: object): object {
     return {
         app_id: this._oauth2._clientId
     };
@@ -127,14 +128,9 @@ Strategy.prototype.authorizationParams = function(options) {
  * @return {Object}
  * @api protected
  */
-OAuth2Strategy.prototype.tokenParams = function(options) {
+OAuth2Strategy.prototype.tokenParams = function(options): object {
     return {
         app_id: this._oauth2._clientId,
         app_secret: this._oauth2._clientSecret
     };
 };
-
-/**
- * Expose `Strategy`.
- */
-module.exports = Strategy;

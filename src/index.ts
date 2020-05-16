@@ -1,7 +1,7 @@
 /**
  * Module dependencies.
  */
-var Strategy = require('./strategy');
+import Strategy from "./strategy";
 
 
 /**

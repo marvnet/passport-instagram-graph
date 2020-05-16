@@ -1,29 +1,31 @@
 {
   "name": "passport-instagram-graph",
   "version": "1.0.1",
-  "author": {
-    "name": "Sang Huynh",
-    "email": "thanhsangqn3@gmail.com"
-  },
+  "author": "Sang Huynh",
   "description": "Instagram graph authentication strategy for Passport.",
   "dependencies": {
     "passport-oauth2": "1.x.x"
   },
   "deprecated": false,
   "devDependencies": {
+    "@types/node": "^14.0.1",
+    "@types/passport-oauth2": "^1.4.9",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.2",
     "vows": "0.8.x"
   },
   "engines": {
     "node": ">= 0.4.0"
   },
-  "main": "./lib/index.js",
+  "main": "./dist/index.js",
   "homepage": "https://github.com/huynhsang/passport-instagram-graph#readme",
   "repository": {
     "type": "git",
     "url": "git://github.com/huynhsang/passport-instagram-graph.git"
   },
   "scripts": {
-    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js"
+    "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js",
+    "build": "tsc"
   },
   "keywords": [
     "passport",
@@ -32,6 +34,5 @@
     "authentication",
     "identity"
   ],
-  "author": "Sang Huynh",
   "license": "MIT"
 }
