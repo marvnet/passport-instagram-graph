@@ -1,7 +1,7 @@
 {
-  "name": "passport-instagram-graph",
-  "version": "1.0.1",
-  "author": "Sang Huynh",
+  "name": "@marvnet/passport-instagram-graph",
+  "version": "1.0.0",
+  "author": "MarvNet Digital UG (haftungsbeschraenkt)",
   "description": "Instagram graph authentication strategy for Passport.",
   "dependencies": {
     "passport-oauth2": "1.x.x"
@@ -18,10 +18,10 @@
     "node": ">= 0.4.0"
   },
   "main": "./dist/index.js",
-  "homepage": "https://github.com/huynhsang/passport-instagram-graph#readme",
+  "homepage": "https://github.com/marvnet/passport-instagram-graph#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/huynhsang/passport-instagram-graph.git"
+    "url": "git://github.com/marvnet/passport-instagram-graph.git"
   },
   "scripts": {
     "test": "NODE_PATH=lib node_modules/.bin/vows test/*-test.js",
