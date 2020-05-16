@@ -1,6 +1,6 @@
 {
   "name": "@marvnet/passport-instagram-graph",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "MarvNet Digital UG (haftungsbeschraenkt)",
   "description": "Instagram graph authentication strategy for Passport.",
   "dependencies": {
